@@ -1,0 +1,114 @@
+light.gateway_light_7811dcb7e280:
+  friendly_name: Xiaomi Control Hub - Attic
+
+light.gateway_light_7811dcb8f32b:
+  friendly_name: Xiaomi Control Hub - Ground Floor
+
+binary_sensor.door_window_sensor_158d0002045c91:
+  friendly_name: Front Door
+
+binary_sensor.door_window_sensor_158d00020b540e:
+  friendly_name: Shed Door
+  icon: mdi:door
+
+binary_sensor.door_window_sensor_158d000232da17:
+  friendly_name: Garden Door
+  icon: mdi:door
+
+sensor.humidity_158d0001f52f1f:
+  friendly_name: Fenna Humidity
+
+sensor.humidity_158d0001fa75cc:
+  friendly_name: Study Humidity
+
+sensor.humidity_158d00022c7d5c:
+  friendly_name: Bedroom Humidity
+
+sensor.humidity_158d00022cdd46:
+  friendly_name: Bathroom Humidity
+
+sensor.humidity_158d000247cdb5:
+  friendly_name: Thomas Humidity
+
+sensor.humidity_158d000247fe4d:
+  friendly_name: Livingroom Humidity
+
+sensor.temperature_158d0001f52f1f:
+  friendly_name: Fenna Temperature
+
+sensor.temperature_158d0001fa75cc:
+  friendly_name: Study Temperature
+
+sensor.temperature_158d00022c7d5c:
+  friendly_name: Bedroom Temperature
+
+sensor.temperature_158d00022cdd46:
+  friendly_name: Bathroom Temperature
+
+sensor.temperature_158d000247cdb5:
+  friendly_name: Thomas Temperature
+
+sensor.temperature_158d000247fe4d:
+  friendly_name: Livingroom Temperature
+
+sensor.pressure_158d0001f52f1f:
+  friendly_name: Fenna Barometric Pressure
+  hidden: true
+
+sensor.pressure_158d0001fa75cc:
+  friendly_name: Study Barometric Pressure
+  hidden: true
+
+sensor.pressure_158d00022c7d5c:
+  friendly_name: Bedroom Barometric Pressure
+  hidden: true
+
+sensor.pressure_158d00022cdd46:
+  friendly_name: Bathroom Barometric Pressure
+  hidden: true
+
+sensor.pressure_158d000247cdb5:
+  friendly_name: Thomas Barometric Pressure
+  hidden: true
+
+sensor.pressure_158d000247fe4d:
+  friendly_name: Livingroom Barometric Pressure
+
+sensor.illumination_158d000200d002:
+  friendly_name: Hallway Illumination
+
+sensor.illumination_158d000200e334:
+  friendly_name: Livingroom Illumination
+
+sensor.illumination_7811dcb7e280:
+  friendly_name: Study Illumnation
+
+sensor.illumination_7811dcb8f32b:
+  friendly_name: Switchboard Illumination
+
+sensor.illumination_158d000200cfee:
+  friendly_name: Bathroom Illumination
+
+binary_sensor.motion_sensor_158d000200d002:
+  friendly_name: Hallway Motion Sensor
+
+binary_sensor.motion_sensor_158d000200e334:
+  friendly_name: Livingroom Motion Sensor
+
+binary_sensor.motion_sensor_158d000200cfee:
+  friendly_name: Bathroom Motion Sensor
+
+binary_sensor.microwave_radar_sensor_kitchen:
+  friendly_name: Kitchen Motion Sensor
+
+device_tracker.dirksiphone:
+  friendly_name: Fugro iPhone
+  hidden: true
+
+device_tracker.fnl0020083:
+  friendly_name: Fugro Laptop
+  hidden: true
+
+device_tracker.googlehomemini:
+  hidden: true
+
