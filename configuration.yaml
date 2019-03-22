@@ -1,0 +1,164 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret location_lat
+  longitude: !secret location_lon
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+
+# Enables the frontend
+frontend:
+  themes: !include /config/themes/clear_dark.yaml
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  # api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+  server_port: 80
+  
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+# conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# hassio logger
+logger:
+  default: warning
+  
+# View all events in a logbook
+logbook:
+  include:
+    domains:
+      - sensor
+      - switch
+      - media_player
+      - light
+      - binary_sensor
+  exclude:
+    entities:
+      - sensor.last_boot
+      - sensor.date
+    domains:
+      - sun
+      - weblink
+
+# influxdb sensor logging // hosted in Azure
+influxdb:
+  host: !secret influxdb_host
+  
+# Enables a map showing the location of tracked devices
+# map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+    name:  Weather
+    forecast: 24
+    monitored_conditions:
+      - temperature
+      - symbol
+      - precipitation
+      - windSpeed
+      - windDirection
+      - humidity
+      - cloudiness
+      - dewpointTemperature
+  - platform: postnl
+    username: !secret postnl_username
+    password: !secret postnl_password
+    
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+  google_actions:
+    filter:
+      include_domains:
+        - light
+        - switch
+        - media_player
+        
+# device tracking
+device_tracker:
+  - platform: unifi
+    host: unifi
+    username: !secret unifi_username
+    password: !secret unifi_password
+    site_id: 'Home'
+    verify_ssl: false
+    ssid_filter:
+      - 'Dulfer'
+      - 'Dulfer 5G'
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+
+# setup Xiaomi hubs    
+xiaomi_aqara:
+  gateways:
+    - host: 10.100.0.11
+      mac: 7811dcb8f32b
+      key: !secret xiaomi_aqara_gw1_key
+    - host: 10.100.0.10
+      mac: 7811dcb7e280
+      key: !secret xiaomi_aqara_gw2_key
+
+# setup tuya / smart life
+tuya:
+  username: !secret tuya_username
+  password: !secret tuya_password
+  country_code: 31
+      
+# setup MQTT
+mqtt:
+  broker: !mqtt_host
+  client_id: homeassistant
+  discovery: true
+
+media_player:
+  - platform: samsungtv
+    host: 192.168.41.57
+
+# setup Zwave 
+zwave:
+  usb_path: /dev/ttyACM0
+
+light: !include lights.yaml
+switch: !include switch.yaml
+binary_sensor: !include binary_sensor.yaml
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
