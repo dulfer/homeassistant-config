@@ -1,0 +1,21 @@
+- platform: mqtt
+  name: "Shed Socket 1"
+  state_topic: "tele/sonoff/DC31C2/POWER1"
+  command_topic: "cmnd/sonoff/DC31C2/POWER1"
+  availability_topic: "tele/sonoff/DC31C2/LWT"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
+
+- platform: mqtt
+  name: "Shed Socket 2"
+  state_topic: "tele/sonoff/DC31C2/POWER2"
+  command_topic: "cmnd/sonoff/DC31C2/POWER2"
+  availability_topic: "tele/sonoff/DC31C2/LWT"
+  payload_on: "ON"
+  payload_off: "OFF"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  retain: false
