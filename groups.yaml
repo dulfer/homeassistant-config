@@ -1,0 +1,111 @@
+living_room:
+    name: Living Room
+    entities:
+      - light.window_lights
+      - light.window_spots
+      - light.dining_lights
+      - light.kitchen_lights
+      - switch.74603836cc50e3430c30
+      - binary_sensor.motion_sensor_158d000200e334
+      - sensor.temperature_158d000247fe4d
+      - sensor.humidity_158d000247fe4d
+      - sensor.pressure_158d000247fe4d
+      - sensor.illumination_158d000200e334
+      - binary_sensor.door_window_sensor_158d000232da17
+      - media_player.tv
+      - media_player.chromecastaudio5060
+      - media_player.google_home
+
+hallway:
+    name: Hallway
+    control: hidden
+    entities:
+       - light.hallway
+       - binary_sensor.motion_sensor_158d000200d002
+       - sensor.illumination_158d000200d002
+       - binary_sensor.door_window_sensor_158d0002045c91
+       - binary_sensor.door_window_sensor_158d00020b540e
+       - sensor.illumination_7811dcb8f32b
+
+bedroom:
+    name: Bedroom
+    control: hidden
+    entities:
+        - sensor.temperature_158d00022c7d5c
+        - sensor.humidity_158d00022c7d5c
+        - sensor.temperature_158d0001f52f1f
+        - sensor.humidity_158d0001f52f1f
+        - sensor.temperature_158d000247cdb5
+        - sensor.humidity_158d000247cdb5
+        - sensor.temperature_158d0001fa75cc
+        - sensor.humidity_158d0001fa75cc
+        - sensor.illumination_7811dcb7e280
+        - media_player.bedroom_speaker      
+
+windows:
+    name: Window Sill
+    control: hidden
+    entities:
+      - light.window_1
+      - light.window_2
+
+spots:
+    name: Livingroom Spots
+    control: hidden
+    entities:
+      - light.livingroom_spot_1
+      - light.livingroom_spot_2
+      - light.livingroom_spot_3
+      - light.livingroom_spot_4
+      
+dining:
+    name: Dining
+    control: hidden
+    entities:
+      - light.dining_1
+      - light.dining_2
+
+kitchen:
+    name: Kitchen
+    control: hidden
+    entities:
+      - light.kitchen_1
+      - light.kitchen_2
+      - light.kitchen_3
+      - binary_sensor.microwave_radar_sensor_kitchen
+      - device_tracker.stream810georgia
+
+bathroom:
+    name: Bathroom
+    control: hidden
+    entities:
+      - light.bathroom_1
+      - light.bathroom_2
+      - sensor.temperature_158d00022cdd46
+      - sensor.humidity_158d00022cdd46
+      - binary_sensor.motion_sensor_158d000200cfee
+      - sensor.illumination_158d000200cfee
+
+weather:
+    name: Weather
+    entities:
+        - sun.sun
+        - sensor.yr_symbol
+        - sensor.weather_symbol
+        - sensor.weather_temperature
+        - sensor.weather_humidity
+        - sensor.weather_wind_direction
+        - sensor.weather_wind_speed
+        - sensor.weather_precipitation
+        - sensor.weather_cloudiness
+        - sensor.weather_dewpoint_temperature
+
+presence:
+    name: Presence
+    control: hidden
+    entities:
+        - device_tracker.dirk
+        - device_tracker.annemieke
+        - device_tracker.tablet_fenna
+        - device_tracker.tablet_thomas
+      
