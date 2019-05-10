@@ -24,6 +24,7 @@ frontend:
 panel_iframe:
   esphome:
     title: "ESPHome"
+    icon: mdi:home-automation
     url: http://10.100.0.100:6052/
 
 # Enables configuration UI
