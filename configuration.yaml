@@ -111,20 +111,14 @@ cloud:
         - media_player
         
 # device tracking
-device_tracker:
-  - platform: unifi
-    host: unifi
-    username: !secret unifi_username
-    password: !secret unifi_password
-    site_id: 'Home'
-    verify_ssl: false
-    ssid_filter:
-      - 'Dulfer'
-      - 'Dulfer 5G'
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: false
+device_tracker: !include device_trackers.yaml
 
+# Google Home BT tracker
+googlehome:
+  devices:
+    - host: 192.168.41.12
+    - host: 192.168.41.15
+    
 # setup Xiaomi hubs    
 xiaomi_aqara:
   gateways:
@@ -152,8 +146,8 @@ media_player:
     host: 192.168.41.57
 
 # setup Zwave 
-zwave:
-  usb_path: /dev/ttyACM0
+# zwave:
+#  usb_path: /dev/ttyACM0
 
 light: !include lights.yaml
 switch: !include switch.yaml
