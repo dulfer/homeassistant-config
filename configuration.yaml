@@ -70,8 +70,8 @@ logbook:
       - weblink
 
 # influxdb sensor logging // hosted in Azure
-influxdb:
-  host: !secret influxdb_host
+# influxdb:
+#  host: !secret influxdb_host
   
 # Enables a map showing the location of tracked devices
 # map:
@@ -99,7 +99,7 @@ sensor:
     
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
 
 # Cloud
 cloud:
@@ -110,9 +110,6 @@ cloud:
         - switch
         - media_player
         
-# device tracking
-device_tracker: !include device_trackers.yaml
-
 # Google Home BT tracker
 googlehome:
   devices:
@@ -156,3 +153,5 @@ binary_sensor: !include binary_sensor.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
+
+device_tracker: !include device_trackers.yaml
