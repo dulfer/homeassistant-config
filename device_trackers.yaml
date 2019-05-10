@@ -1,0 +1,27 @@
+# device tracking
+- platform: unifi
+  host: unifi
+  username: !secret unifi_username
+  password: !secret unifi_password
+  site_id: default
+  verify_ssl: false
+  ssid_filter:
+    - 'Dulfer'
+    - 'Dulfer 5G'
+  new_device_defaults:
+    track_new_devices: true
+    hide_if_away: false
+
+- platform: googlehome
+  host: 192.168.41.12
+  rssi_threshold: -100
+  consider_home: 10
+  new_device_defaults:
+    track_new_devices: true
+
+- platform: googlehome
+  host: 192.168.41.15
+  rssi_threshold: -100
+  consider_home: 10
+  new_device_defaults:
+    track_new_devices: true
