@@ -1,0 +1,250 @@
+title: Home
+views:
+  - badges: []
+    cards:
+      - cards:
+          - entity: light.window_lights
+            hold_action:
+              action: more-info
+            icon: 'mdi:sofa'
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: toggle
+            theme: Backend-selected
+            type: entity-button
+          - entity: light.window_spots
+            hold_action:
+              action: more-info
+            icon: 'mdi:track-light'
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: toggle
+            theme: Backend-selected
+            type: entity-button
+          - entity: light.dining_lights
+            hold_action:
+              action: more-info
+            icon: 'mdi:silverware-fork-knife'
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: toggle
+            theme: Backend-selected
+            type: entity-button
+          - entity: light.kitchen_lights
+            hold_action:
+              action: more-info
+            icon: 'mdi:stove'
+            show_icon: true
+            show_name: false
+            tap_action:
+              action: toggle
+            theme: Backend-selected
+            type: entity-button
+        type: horizontal-stack
+      - entities:
+          - light.window_lights
+          - light.window_spots
+          - light.dining_lights
+          - light.kitchen_lights
+          - switch.74603836cc50e3430c30
+          - binary_sensor.motion_sensor_158d000200e334
+          - sensor.temperature_158d000247fe4d
+          - sensor.humidity_158d000247fe4d
+          - sensor.pressure_158d000247fe4d
+          - sensor.illumination_158d000200e334
+          - binary_sensor.door_window_sensor_158d000232da17
+        show_header_toggle: true
+        title: Living Room
+        type: entities
+      - entities:
+          - light.hallway
+          - binary_sensor.motion_sensor_158d000200d002
+          - sensor.illumination_158d000200d002
+          - binary_sensor.door_window_sensor_158d0002045c91
+          - binary_sensor.door_window_sensor_158d00020b540e
+          - sensor.illumination_7811dcb8f32b
+        show_header_toggle: false
+        title: Hallway
+        type: entities
+      - type: horizontal-stack
+        cards:
+          - entity: sensor.unifi_gateway_3_kbyte_sec_received
+            type: gauge
+            max: 250000
+            min: 0
+            name: Ingress
+          - entity: sensor.unifi_gateway_3_kbyte_sec_sent
+            type: gauge
+            max: 25000
+            min: 0
+            name: Egress
+      - entities:
+          - sensor.temperature_158d00022c7d5c
+          - sensor.humidity_158d00022c7d5c
+          - sensor.temperature_158d0001f52f1f
+          - sensor.humidity_158d0001f52f1f
+          - sensor.temperature_158d000247cdb5
+          - sensor.humidity_158d000247cdb5
+          - sensor.temperature_158d0001fa75cc
+          - sensor.humidity_158d0001fa75cc
+          - sensor.illumination_7811dcb7e280
+        show_header_toggle: false
+        title: Bedroom
+        type: entities
+      - entities:
+          - light.bathroom_lights
+          - light.bathroom_1
+          - light.bathroom_2
+          - sensor.temperature_158d00022cdd46
+          - sensor.humidity_158d00022cdd46
+          - binary_sensor.motion_sensor_158d000200cfee
+          - sensor.illumination_158d000200cfee
+        show_header_toggle: false
+        title: Bathroom
+        type: entities
+      - entities:
+          - entity: sun.sun
+          - entity: sensor.weather_symbol
+          - entity: sensor.weather_temperature
+          - entity: sensor.weather_humidity
+          - entity: sensor.weather_wind_direction
+          - entity: sensor.weather_wind_speed
+          - entity: sensor.weather_precipitation
+          - entity: sensor.weather_cloudiness
+          - entity: sensor.weather_dewpoint_temperature
+        show_header_toggle: false
+        title: Weather
+        type: entities
+      - entities:
+          - entity: device_tracker.192_168_41_12_c0_11_73_fd_a6_10
+          - entity: device_tracker.192_168_41_15_c0_11_73_fd_a6_10
+          - entity: device_tracker.tablet_fenna
+          - entity: device_tracker.tablet_thomas
+        show_header_toggle: false
+        title: Presence
+        type: entities
+      - entities:
+          - switch.shed_socket_1
+          - switch.shed_socket_2
+        show_header_toggle: false
+        title: Switch
+        type: entities
+    icon: 'mdi:home-automation'
+    path: default_view
+    theme: default
+    title: Livingroom
+  - badges: []
+    cards:
+      - cards:
+          - cards:
+              - entity: sensor.temperature_158d00022c7d5c
+                graph: line
+                type: sensor
+              - entity: sensor.humidity_158d00022c7d5c
+                graph: line
+                type: sensor
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.temperature_158d0001f52f1f
+                graph: line
+                type: sensor
+              - entity: sensor.humidity_158d0001f52f1f
+                graph: line
+                type: sensor
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.temperature_158d00022cdd46
+                graph: line
+                type: sensor
+              - entity: sensor.humidity_158d00022cdd46
+                graph: line
+                type: sensor
+            type: horizontal-stack
+        type: vertical-stack
+      - cards:
+          - cards:
+              - entity: sensor.temperature_158d000247cdb5
+                graph: line
+                type: sensor
+              - entity: sensor.humidity_158d000247cdb5
+                graph: line
+                type: sensor
+            type: horizontal-stack
+          - cards:
+              - entity: sensor.temperature_158d0001fa75cc
+                graph: line
+                type: sensor
+              - entity: sensor.humidity_158d0001fa75cc
+                graph: line
+                type: sensor
+            type: horizontal-stack
+        type: vertical-stack
+    icon: 'mdi:bed-empty'
+    title: Bedrooms
+  - badges: []
+    cards:
+      - entity: light.dining_lights
+        name: Dining
+        type: light
+      - entities:
+          - light.window_lights
+          - light.window_1
+          - light.window_2
+        show_header_toggle: false
+        title: Window Sill
+        type: entities
+      - entities:
+          - light.window_spots
+          - light.livingroom_spot_1
+          - light.livingroom_spot_2
+          - light.livingroom_spot_3
+          - light.livingroom_spot_4
+        show_header_toggle: false
+        title: Livingroom Spots
+        type: entities
+      - entities:
+          - entity: light.kitchen_lights
+          - entity: light.kitchen_1
+          - entity: light.kitchen_2
+          - entity: light.kitchen_3
+          - entity: binary_sensor.microwave_radar_sensor_kitchen
+        show_header_toggle: false
+        title: Kitchen
+        type: entities
+      - entities:
+          - entity: light.thomas
+        title: Bedroom
+        type: entities
+      - entities:
+          - light.gateway_light_7811dcb8f32b
+          - light.gateway_light_7811dcb7e280
+        title: Xiaomi Hubs
+        type: entities
+      - entities:
+          - light.dining_lights
+          - light.dining_1
+          - light.dining_2
+        show_header_toggle: false
+        title: Dining
+        type: entities
+    icon: 'mdi:lightbulb-on'
+    title: Lights
+  - badges: []
+    cards:
+      - entity: media_player.google_home
+        type: media-control
+      - entity: media_player.tv
+        type: media-control
+      - entity: media_player.bedroom_speaker
+        type: media-control
+      - entity: media_player.speakers
+        type: media-control
+      - entity: media_player.kitchen_speaker
+        type: media-control
+      - entity: media_player.samsung_tv_remote
+        type: media-control
+    icon: 'mdi:google'
+    title: Media
