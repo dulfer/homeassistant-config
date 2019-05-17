@@ -60,6 +60,11 @@ history:
 # hassio logger
 logger:
   default: warning
+  #logs:
+  #  aiounifi: debug
+  #  homeassistant.components.unifi: debug
+  #  homeassistant.components.switch.unifi: debug
+
 
 # View all events in a logbook
 logbook:
@@ -158,6 +163,10 @@ media_player:
 # setup Zwave 
 # zwave:
 #  usb_path: /dev/ttyACM0
+
+# switch to lovelace-ui yaml mode
+lovelace:
+  mode: yaml
 
 light: !include lights.yaml
 switch: !include switch.yaml
