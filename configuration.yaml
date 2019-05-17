@@ -30,13 +30,15 @@ panel_iframe:
 # Enables configuration UI
 config:
 
+system_health:
+
 http:
   # Secrets are defined in the file secrets.yaml
   # api_password: !secret http_password
   # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
   # base_url: example.duckdns.org:8123
   server_port: 80
-  
+
 # Checks for available updates
 # Note: This component will send some information about your system to
 # the developers to assist with development of Home Assistant.
@@ -58,7 +60,7 @@ history:
 # hassio logger
 logger:
   default: warning
-  
+
 # View all events in a logbook
 logbook:
   include:
@@ -103,7 +105,7 @@ sensor:
   - platform: postnl
     username: !secret postnl_username
     password: !secret postnl_password
-    
+
 # Text to speech
 tts:
   - platform: google_translate
@@ -116,13 +118,17 @@ cloud:
         - light
         - switch
         - media_player
-        
+
 # Google Home BT tracker
 googlehome:
   devices:
     - host: 192.168.41.12
+      track_alarms: true
+      track_devices: true
     - host: 192.168.41.15
-    
+      track_alarms: true
+      track_devices: true
+
 # setup Xiaomi hubs    
 xiaomi_aqara:
   gateways:
@@ -138,11 +144,11 @@ tuya:
   username: !secret tuya_username
   password: !secret tuya_password
   country_code: 31
-      
+
 # setup MQTT
 mqtt:
   broker: !secret mqtt_host
-  client_id: homeassistant
+  client_id: hassio
   discovery: true
 
 media_player:
@@ -157,8 +163,8 @@ light: !include lights.yaml
 switch: !include switch.yaml
 binary_sensor: !include binary_sensor.yaml
 
+device_tracker: !include device_trackers.yaml
+
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
-
-device_tracker: !include device_trackers.yaml
