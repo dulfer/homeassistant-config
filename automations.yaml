@@ -1,4 +1,4 @@
-- alias: "Default Theme after Sunrise"
+- alias: "Light Theme after Sunrise"
   trigger:
     platform: sun
     event: sunrise
@@ -7,7 +7,8 @@
     - service: frontend.set_theme
       data:
         name: default
-- alias: "dark Theme after Sunset"
+        
+- alias: "Dark Theme after Sunset"
   trigger:
     platform: sun
     event: sunset
@@ -16,3 +17,26 @@
     - service: frontend.set_theme
       data:
         name: dark    
+
+- alias: "Turn Hallway Light on when there is movement"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000200d002
+    to: 'Detected'
+  condition:
+    condition: template
+    value_template: '{{ sensor.illumination_158d000200d002 < 8 }}'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.hallway
+      
+- alias: "Turn off hallway light 1 minutes after last movement"
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_sensor_158d000200d002
+    to: 'Clear'
+    for:
+      minutes: 1
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.hallway
