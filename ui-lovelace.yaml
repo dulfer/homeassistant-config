@@ -1,5 +1,5 @@
 resources:
-  - url: ./www/mini-media-player-bundle.js?v=1.1.3
+  - url: /local/mini-media-player-bundle.js
     type: module
 
 title: Home
@@ -251,11 +251,26 @@ views:
       - entity: media_player.samsung_tv_remote
         type: media-control
       - type: custom:mini-media-player
-        entity: media_player.example
-        icon: mdi:spotify
+        entity: media_player.google_home
         artwork: cover
         hide:
           volume: false
+          source: true
+          power_state: false
+      - type: custom:mini-media-player
+        entity: media_player.tv
+        artwork: cover
+        icon: 'mdi:cast'
+        hide:
+          volume: true
+          source: true
+          power_state: false
+      - type: custom:mini-media-player
+        entity: media_player.samsung_tv_remote
+        artwork: cover
+        icon: 'mdi:cast'
+        hide:
+          volume: true
           source: true
           power_state: false
     icon: 'mdi:google'
