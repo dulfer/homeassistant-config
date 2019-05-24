@@ -1,5 +1,5 @@
 - platform: mqtt
   name: "Microwave Radar Sensor Kitchen"
   state_topic: "stat/motion/64C9C2/POWER"
-  payload_on: "OFF"
-  payload_off: "ON"
+  payload_on: "ON"
+  payload_off: "OFF"

@@ -111,6 +111,12 @@ sensor:
     username: !secret postnl_username
     password: !secret postnl_password
 
+# Darksky weather integration
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
+    mode: daily
+    
 # Text to speech
 tts:
   - platform: google_translate
@@ -127,22 +133,22 @@ cloud:
 # Google Home BT tracker
 googlehome:
   devices:
-    - host: 192.168.41.12
+    - host: 192.168.41.78
       track_alarms: true
       track_devices: true
-    - host: 192.168.41.15
+    - host: 192.168.41.79
       track_alarms: true
       track_devices: true
 
-# setup Xiaomi hubs    
+# setup Xiaomi hubs
 xiaomi_aqara:
   gateways:
-    - host: 10.100.0.11
-      mac: 7811dcb8f32b
+    - mac: 7811dcb8f32b
       key: !secret xiaomi_aqara_gw1_key
-    - host: 10.100.0.10
-      mac: 7811dcb7e280
+      # host: 10.100.0.11
+    - mac: 7811dcb7e280
       key: !secret xiaomi_aqara_gw2_key
+      # host: 10.100.0.10
 
 # setup tuya / smart life
 tuya:
@@ -158,7 +164,7 @@ mqtt:
 
 media_player:
   - platform: samsungtv
-    host: 192.168.41.57
+    host: 192.168.41.77
 
 # setup Zwave 
 # zwave:
@@ -172,7 +178,7 @@ light: !include lights.yaml
 switch: !include switch.yaml
 binary_sensor: !include binary_sensor.yaml
 
-device_tracker: !include device_trackers.yaml
+#device_tracker: !include device_trackers.yaml
 
 group: !include groups.yaml
 automation: !include automations.yaml

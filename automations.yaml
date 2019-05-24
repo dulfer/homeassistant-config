@@ -52,3 +52,86 @@
   action:
     service: light.toggle
     entity_id: light.thomas  
+
+
+# binary_sensor.switch_158d00023db266
+- alias: "Toggle Fenna bed spot light on single press"
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d00023db266 #button_thomas
+      click_type: single
+  action:
+    service: light.toggle
+    entity_id: light.fenna_spot_1  
+    
+- alias: "Toggle Fenna ceiling light on long press"
+  trigger:
+    platform: event
+    event_type: xiaomi_aqara.click
+    event_data:
+      entity_id: binary_sensor.switch_158d00023db266 #button_fenna
+      click_type: double
+  action:
+    service: light.toggle
+    entity_id: light.fenna_spots  
+    
+    
+# fenna's bedroom aliases
+- alias: "Fenna's room alias B2 group 1 (bed spot)"
+  initial_state: True
+  trigger:
+    - platform: mqtt
+      topic: 'milight/state/0x6A78/rgb_cct/1'
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/1'
+        payload_template: '{{ trigger.payload }}'
+
+- alias: "Fenna's room alias B2 group 2"
+  initial_state: True
+  trigger:
+    - platform: mqtt
+      topic: 'milight/state/0x6A78/rgb_cct/2'
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/1'
+        payload_template: '{{ trigger.payload }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/2'
+        payload_template: '{{ trigger.payload }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/3'
+        payload_template: '{{ trigger.payload }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/4'
+        payload_template: '{{ trigger.payload }}'
+
+- alias: "Fenna's room alias B2 group 0"
+  initial_state: True
+  trigger:
+    - platform: mqtt
+      topic: 'milight/state/0x6A78/rgb_cct/0'
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/1'
+        payload_template: '{{ trigger.payload }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/2'
+        payload_template: '{{ trigger.payload }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/3'
+        payload_template: '{{ trigger.payload }}'
+    - service: mqtt.publish
+      data_template:
+        topic: 'milight/state/0x2231/rgb_cct/4'
+        payload_template: '{{ trigger.payload }}'
