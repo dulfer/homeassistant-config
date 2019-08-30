@@ -1,0 +1,44 @@
+esphome:
+  name: motion01
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: "Dulfer IoT"
+  password: "secret4iot"
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: "esphomeota"
+
+ota:
+  password: "esphomeota"
+
+mqtt:
+  broker: mqtt.home.dulfer.net
+  username: esp-motion
+  password: motionsecret
+  client_id: kitchen-motion
+
+# Enable Web server
+web_server:
+  port: 80
+
+sensor:
+  - platform: wifi_signal
+    name: esphome_motion01_wifi_signal
+    update_interval: 30s
+  - platform: uptime
+    name: esphome_motion01_uptime
+
+switch:
+  - platform: restart
+    name: esphome_motion01_restart
+    
+binary_sensor:
+  - platform: gpio
+    pin: GPIO5
+    name: "Kitchen Motion"
