@@ -1,6 +1,6 @@
 - platform: mqtt
   name: "Shed Socket 1"
-  state_topic: "tele/sonoff/DC31C2/POWER1"
+  state_topic: "stat/sonoff/DC31C2/POWER1"
   command_topic: "cmnd/sonoff/DC31C2/POWER1"
   availability_topic: "tele/sonoff/DC31C2/LWT"
   payload_on: "ON"
@@ -11,7 +11,7 @@
 
 - platform: mqtt
   name: "Shed Socket 2"
-  state_topic: "tele/sonoff/DC31C2/POWER2"
+  state_topic: "stat/sonoff/DC31C2/POWER2"
   command_topic: "cmnd/sonoff/DC31C2/POWER2"
   availability_topic: "tele/sonoff/DC31C2/LWT"
   payload_on: "ON"
@@ -19,3 +19,16 @@
   payload_available: "Online"
   payload_not_available: "Offline"
   retain: false
+
+# Circadian Lighting switch (adjust color temperature)
+- platform: circadian_lighting
+  name: "Circadian Lights"
+  disable_brightness_adjust: true
+  lights_rgb:
+    - light.kitchen_1
+    - light.kitchen_2
+    - light.kitchen_3
+    - light.dining_lights
+    - light.window_spots
+    - light.window_lights
+    - light.hallway
