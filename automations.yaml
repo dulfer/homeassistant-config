@@ -42,17 +42,23 @@
     service: light.turn_off
     entity_id: light.hallway
 
+# bed switch : binary_sensor.switch_158d0001ef86ec
+# wall switch: binary_sensor.switch_158d00023e7a44
 - alias: "Toggle Thomas ceiling light on single press"
   trigger:
-    platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d0001ef86ec
-      click_type: single
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d0001ef86ec
+        click_type: single
+    - platform: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d00023e7a44
+        click_type: single
   action:
     service: light.toggle
     entity_id: light.thomas  
-
 
 # binary_sensor.switch_158d00023db266
 - alias: "Toggle Fenna bed spot light on single press"
