@@ -4,24 +4,18 @@ esphome:
   board: d1_mini
 
 wifi:
-  ssid: "Dulfer IoT"
-  password: "secret4iot"
+  ssid: !secret wifi_iot_ssid
+  password: !secret wifi_iot_password
 
 # Enable logging
 logger:
 
 # Enable Home Assistant API
 api:
-  password: "esphomeota"
+  password: !secret esphome_api_password
 
 ota:
-  password: "esphomeota"
-
-mqtt:
-  broker: mqtt.home.dulfer.net
-  username: esp-motion
-  password: motionsecret
-  client_id: kitchen-motion
+  password: !secret esphome_ota_password
 
 # Enable Web server
 web_server:
@@ -42,3 +36,7 @@ binary_sensor:
   - platform: gpio
     pin: GPIO5
     name: "Kitchen Motion"
+
+text_sensor:
+  - platform: version
+    name: esphome_motion01_version
